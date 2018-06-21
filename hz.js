@@ -149,13 +149,12 @@
 
             blobToDataURL(this.getBlob(), function(dataUrlBase){
                 let audioBase64 = dataUrlBase.split(',')[1];
-                let Appid = '5b28a244';
-                let APIKey = '435b420f611fbd78227b3687d04f0dfe';
+                let appid = '5b28a244';
+                let apikey = '435b420f611fbd78227b3687d04f0dfe';
                 let param = 'eyJlbmdpbmVfdHlwZSI6ICJzbXMxNmsiLCJhdWUiOiAicmF3In0=';
                 let curTime = Math.round(new Date() / 1000)
                 console.log(curTime)
-                let checkSum = md5(APIKey+curTime+param);
-
+                let checkSum = md5(apikey+curTime+param);
 
                 $.ajax({
                      type: "POST",
@@ -164,7 +163,7 @@
                      dataType: "json",
                      contentType: "application/x-www-form-urlencoded;charset=utf-8",
                      headers: {
-                        'X-Appid':Appid,
+                        'X-Appid':appid,
                         'X-CurTime':curTime,
                         'X-Param':param,
                         'X-CheckSum':checkSum
